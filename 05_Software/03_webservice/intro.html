@@ -1,0 +1,84 @@
+<html>
+<head>
+  <title>Second Example</title>
+  <!-- CSS = Cascading Style Sheets -->
+  
+  <link rel="stylesheet" href="style.css"/>
+
+
+</head>
+<body>
+  <h1>Heading 1 (Chapter)</h1>
+  <p>Hi there. This is a paragraph. <BR/>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+  <p> Second paragraph with <B>bold</B> and <I>italic</I> text.
+  <h2>Heading 2 (Section) </h2>
+  <h3>Heading 3 (Subsection) </h3>
+  <h4>Heading 4 (Paragraph) </h4>
+
+  <h1>For our todo list</h1>
+  <p>
+    <ul>
+      <li>Unordered Lists</li>
+      <li>List Items</li>
+    </ul>
+    <ol>
+      <li>Ordered Lists</li>
+      <li>Same List Items</li>
+    </ol>
+  </p>
+  <p>
+    <table border=1>
+      <tr>
+	<td>Cell 1 </td><td>Cell 2</td>
+      </tr>
+      <tr>
+	<td>Hello </td><td>World</td>
+      </tr>
+      <tr>
+	<td>Third </td><td>Row</td>
+      </tr>
+    </table>
+    
+  </p>
+  <hr/>
+  <h1>More HTML Elements</h1>
+  <img src="drone.png" alt="This is a drone..." class="fullwidth"/>
+  <img src="drone.png" alt="This is a drone..." class="halfwidth"/>
+
+  <h2>CSS on text</h2>
+  <p>
+    oiands asoid <span class="highlight">aosid</span> asoind aosidna soidn aoginsaofgnas fong dofng osnfg sodf
+    However, the span is made for text and not always used, because you can
+    use a div (division) instead.
+  </p>
+
+  <div class="halfwidth highlight">
+    Again some long text so that we can see that this is rendered
+    to only half the size of the browser window. I am too lazy to make capital letters so
+    all the typos are made for you. YOu can correct them or keep them. I don't care.
+  </div>
+  <div>
+    How does the Internet get interactive?<br/>
+    <button id="btnAlert">CLick me </button>
+  </div>
+
+
+  <script language="JavaScript">
+    //alert("This is a message");
+    buttonAlert = document.getElementById("btnAlert");
+    console.log(buttonAlert);
+    /*
+       This now needs to be connected through an event handler.
+       Either learn it directly (see the example I will upload)
+       or better
+       - learn jQuery -- library to access things in a cross-browser manner.
+       - maybe learn react.js
+    */
+  </script>
+  
+  
+  
+  
+</body>
+</html>
