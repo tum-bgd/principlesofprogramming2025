@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tumtodo"
+version = "0.0.1"
+authors = [
+  { name="Martin and students", email="noreply@tum.de" },
+]
+description = "A TODO list to show Python software development cycle"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://www.bgd.ed.tum.de/"
+
