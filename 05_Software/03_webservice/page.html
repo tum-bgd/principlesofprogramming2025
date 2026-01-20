@@ -1,0 +1,26 @@
+<html>
+
+  <body>
+  </body>
+  <script>
+    // fetch /gold into JavaScript
+    async function getList() {
+	const url = "/gold";
+	try {
+	    const response = await fetch(url);
+	    if (!response.ok) {
+		throw new Error(`Response status: ${response.status}`);
+	    }
+
+	    const result = await response.json();
+	    result.forEach((x)=> {console.log(x);});
+	    console.log(result);
+	    // here, you should add them to the document
+	} catch (error) {
+	    console.error(error.message);
+	}
+    }
+    getList();
+  </script>
+</html>
+
