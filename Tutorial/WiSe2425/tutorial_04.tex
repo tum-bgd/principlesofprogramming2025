@@ -1,0 +1,115 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+
+% The package supports other formats as well, but this template
+% is primarily checked and updated for examinations at TUM BGDM
+%\usepackage[uebung, answers]{tumbgdm}
+
+\usepackage[uebung]{tumbgdm}
+\usepackage{pythonhighlight}
+
+\Professor{Prof. Dr. Martin Werner}
+\Universitaet{Technical University of Munich}
+\Institut{School of Engineering and Design}
+\Lehrstuhl{Professorship Big Geospatial Data Management}
+\Semester[WiTe 2024/25]{Winter Term 2024/25}
+\Vorlesung{Principles of Programming}
+\InstitutsWebsite{https://www.bgd.lrg.tum.de/}
+\VorlesungsWebsite{https://www.moodle.tum.de/course/view.php?id=103704}
+
+\nummerUebungsblatt{3}
+\nummerErsteFrage{1}
+
+\LearningOutcome{ Python Packages: Numpy, Pyplot}
+
+\begin{document}
+\maketitle
+
+\begin{task}{Numpy}{}{}
+%\begin{lstlisting}[numbers=none]
+%import numpy as np
+%\end{lstlisting}
+Import the NumPy package (Official documentation: \href{https://numpy.org/doc/}{https://numpy.org/doc/}) and use it to solve the following tasks:
+
+\begin{enumerate}
+    \item Print the Numpy version and configuration
+    \item Create a 10x10 matrix filled with zeros
+    \item Find the shape of an arbitrary array (e.g. the one from a.)
+    \item Create a 4x6 matrix with zeros but the value at index [2, 3] which is 1
+    \item Create a 3x7 matrix filled with values ranging from 21 to 42
+    \item Create a vector of size 10 filled with random values from 0 to 1
+    \item Reverse the vector from f. (first element becomes last)
+    \item Create a 3x3 matrix with random integer values ranging from 0 to 8
+    \item Find indices of non-zero elements from [1,0,7,0,1,0,0,1,0,0,1]
+    \item Find all unique values from [1,0,7,0,1,0,0,1,0,0,1]
+    \item Create a 3x3 identity matrix
+    \item Multiply a 5x3 matrix by a 3x2 matrix
+    \item Create a random vector of size 10 and sort it
+    \item Create a 5x5x5 array with random values and find the minimum, the maximum and the mean value
+\end{enumerate}
+\end{task}
+
+\clearpage
+\begin{task}{Matplotlib}{}{}
+%\begin{lstlisting}[numbers=none]
+%from matplotlib import pyplot as plt
+%\end{lstlisting}
+Import the Pyplot package from Matplotlib (Official documentation: \href{https://matplotlib.org/stable/api/index.html}{https://matplotlib.org/stable/api/index.html}) and use it to solve the following tasks:
+
+\begin{enumerate}
+    \item Load an image of your choice
+    \item Display the image
+    \item What are the spatial dimensions, data type, and range of the values of the image?
+    \item What is the color value of the pixel at position [21,42]?
+    \item Calculate the mean colour value for each channel over all pixels
+    \item Convert the image in grayscale and display it. The gray value h can be calculated from the RGB values using the formular h = 0.2989r + 0.5870g + 0.1140b.
+    \item Change the colormap so that the image is actually shown as grayscale and display it again
+    \item Save the grayscale image in the PNG-format
+    \item Create and plot a histogram of the grayscale image
+\end{enumerate}
+\end{task}
+
+\begin{task}{Numpy continued}{}{}
+Use Numpy to solve the following tasks.
+\begin{enumerate}
+    \item Create a 2D array with 1 on the border and 0 inside
+    \item Normalize a 5x5 random matrix
+    \item Multiply a 4x3 matrix by a 3x5 matrix
+    \item Create a random vector of size 6 and replace the maximum value by 0
+    \item Create a 2D integer matrix and return the transpose
+    \item Create a checkerboard 10x10 matrix using the "tile" function
+\end{enumerate}
+\end{task}
+
+
+\clearpage
+\begin{task}{Matplotlib continued}{}{}
+Use Matplotlib to solve the following tasks.
+First, we create some random dataframe with pandas:
+\begin{lstlisting}[numbers=none]
+import pandas
+df = pandas.DataFrame(data={"a":np.random.randint(0, 100, 50),
+                            "b":np.random.randint(0, 100, 50),
+                            "c":np.random.randint(0, 100, 50)})
+\end{lstlisting}
+
+\section{Line Plot}
+\begin{enumerate}
+    \item Create a figure of size 15x8 with two subplots, top and bottom
+    \item Draw two lines (data a and b) in the top plot, one blue and one orange, and add a grid
+    \item Create two vectors of size 50 filled with random values in range 0-10 and use "matplotlib.pyplot.fill\_between" function to plot an artificial standard deviation for both lines (Hint: Set "alpha=0.2" and "edgecolor=None")
+    \item For the top plot, add a title and a legend in the top-middle
+    \item In the bottom plot, create a graph of only the data points (c), marked by circles, but with no line connecting the points. Further, add a grid, title, and legend for the bottom plot
+\end{enumerate}
+
+\section{Bar Plot}
+\begin{enumerate}
+    \item Create a figure of size (15,18) with three subplots, aligned vertically
+    \item Create bar graphs for data a and data b in the first two subplots but in third subplot put data b on top of data a
+    \item Add a legend and title for each plot
+    \item Plot the magnitude of each bar on top of it
+\end{enumerate}
+
+\end{task}
+
+\end{document}

@@ -1,0 +1,102 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+
+% The package supports other formats as well, but this template
+% is primarily checked and updated for examinations at TUM BGDM
+%\usepackage[uebung, answers]{tumbgdm}
+
+\usepackage[uebung]{tumbgdm}
+\usepackage{pythonhighlight}
+
+\Professor{Prof. Dr. Martin Werner}
+\Universitaet{Technical University of Munich}
+\Institut{School of Engineering and Design}
+\Lehrstuhl{Professorship Big Geospatial Data Management}
+\Semester[WiTe 2024/25]{Winter Term 2024/25}
+\Vorlesung{Principles of Programming}
+\InstitutsWebsite{https://www.bgd.lrg.tum.de/}
+\VorlesungsWebsite{https://www.moodle.tum.de/course/view.php?id=103704}
+
+\nummerUebungsblatt{7}
+\nummerErsteFrage{1}
+
+\LearningOutcome{ Solving complex computational problems}
+
+\begin{document}
+\maketitle
+
+\vspace{10pt}
+
+In this longer tutorial, we want to jointly look at how we can combine our initial knowledge to build a full deep learning system in which a large spatial image and GDAL are used together with Tensorflow to predict a certain spatial feature.
+
+\vspace{10pt}
+
+In this first part, we will build knowledge on GDAL, cut out small images (called tiles or patches) from your measured data, and assign a class to it.
+
+%In the beginning, it is proposed to build knowledge on the three involved aspects individually:
+%- understand the GDAL workbook and already try to extract smaller patches (therefore, check the example GDAL notebook!)
+%- learn about the simple deep learning example (keras, mnist) which can detect handwritten letters in black and white. Maybe extend it to RGB images already (you could build an RGB image from three identical grayscale layers)
+
+
+\begin{task}{Data exploration}{}{}
+Initially, it is proposed to build knowledge on GDAL and understand the provided data \code{germany.tiff}.
+Therefore, go through the script \code{GDAL.ipynb}, then try to adapt it.
+Choose a point of interest (POI) and extract the area around it as a JPG file for further processing.
+Finally, you should end up with an RGB image file \code{germany\_poi.jpg}.
+
+\end{task}
+
+\begin{task}{Create tiles}{}{}
+Tile the file \code{germany\_poi.jpg} from Task 1 by writing a function \code{tile()}.
+It is suggested to create tiles/patches with a size of $48 \times 48$ or $64 \times 64$, but you may choose any size you like.
+Also, try to overlap the tiles by a small amount.
+Finally, save the tiles in a new directory.
+
+\end{task}
+
+\begin{task}{Ground truth}{}{}
+Before we can run a deep learning model, we need ground truth data.
+You may use any ground truth for any spatial feature you like.
+However, here, we will use, as an example, forest as a spatial feature and download it via the Overpass API.
+Overpass-turbo is a web-based data mining tool for Open Street Map and can be accessed \href{https://overpass-turbo.eu/}{here}.
+You can read the documentation on the API and how to write queries \href{https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL}{here}.
+Then, we import the extracted geojson file with QGIS or ArcGIS, rasterize the data, and export it as TIFF (in QGIS click "Raster", "Conversion", then "Rasterize").
+It is important to extract the TIFF with the right coordinate system and bounding box applied.
+
+\end{task}
+
+\clearpage
+
+\begin{task}{Label the data}{}{}
+Finally, write a function \code{label\_data()} to assign a class to the tiles.
+Here, the simplest approach is to extract a random patch (random location, but within the bounds of the image), and if it contains forest (\code{np.sum(...) != 0}), you store a JPG file of the patch in a directory \code{no\_forest}. Otherwise, put it into \code{forest}.
+You end up with two directories of images.
+
+\end{task}
+
+
+%%%%%%%%%%%%%%%%%%%%% KEEP THIS FOR NEXT TUTORIAL %%%%%%%%%%%%%%%%%%%%%
+%\begin{task}{Data loader}{}{}
+
+%what you want to have in the end:
+%- train and test dataloader
+
+%\end{task}
+
+
+%\begin{task}{Deep learning}{}{}
+
+%- learn about keras data generators (yield image)
+%- train (maybe in the south-east of Germany) a neural network to detect if buildings are inside and test it in the south-east
+
+%\begin{figure}[!h]
+%    \centering
+%    \includegraphics[width=1\textwidth]{exmaple.png}
+%    \caption{A tree created with $45^{\circ}$ angles.}
+%    \label{fig:enter-label}
+%\end{figure}
+
+%\end{task}
+
+
+\end{document}

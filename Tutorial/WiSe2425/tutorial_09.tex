@@ -1,0 +1,66 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+
+% The package supports other formats as well, but this template
+% is primarily checked and updated for examinations at TUM BGDM
+%\usepackage[uebung, answers]{tumbgdm}
+
+\usepackage[uebung]{tumbgdm}
+\usepackage{pythonhighlight}
+
+\Professor{Prof. Dr. Martin Werner}
+\Universitaet{Technical University of Munich}
+\Institut{School of Engineering and Design}
+\Lehrstuhl{Professorship Big Geospatial Data Management}
+\Semester[WiTe 2024/25]{Winter Term 2024/25}
+\Vorlesung{Principles of Programming}
+\InstitutsWebsite{https://www.bgd.lrg.tum.de/}
+\VorlesungsWebsite{https://www.moodle.tum.de/course/view.php?id=103704}
+
+\nummerUebungsblatt{8}
+\nummerErsteFrage{1}
+
+\LearningOutcome{ Solving complex computational problems}
+
+\begin{document}
+\maketitle
+
+\vspace{10pt}
+
+In this longer tutorial, we want to jointly look at how we can combine our initial knowledge to build a full deep learning system in which a large spatial image and GDAL are used together with Tensorflow to predict a certain spatial feature.
+
+\vspace{10pt}
+
+In this second part, we will learn about Keras data loaders and train a neural network to detect some spatial features.
+It is proposed that knowledge on Keras be first built with a tutorial for a simple deep-learning example. 
+A beginner-friendly overview can be found \href{https://www.tensorflow.org/tutorials/keras/classification}{here}.
+Note that for multidimensional raster data, you may want to use convolutional layers like shown \href{https://keras.io/examples/vision/mnist_convnet/}{here}.
+You may even extend the example with RGB images already (you could build an RGB image from three identical grayscale layers).
+
+
+\begin{task}{Data loading}{}{}
+A convenient way to load and prepare your data for deep learning with Keras is a "data loader".
+You can read the official documentation and examples \href{https://keras.io/api/data_loading/}{here} and subsequently \href{https://keras.io/api/data_loading/image/}{here}.
+Set up data loaders for train, test, and validation data.
+\end{task}
+
+\begin{task}{Deep learning model}{}{}
+Build and compile a deep learning model with Keras.
+You may adapt the convolutional neural network from \href{https://keras.io/examples/vision/mnist_convnet/}{this} example.
+\end{task}
+
+\begin{task}{Training and evaluation}{}{}
+Finally, train (\code{model.fit()}) and evaluate (\code{model.evaluate()}) your model.
+Plot some examples for correct and wrong classified images.
+\end{task}
+
+\clearpage
+
+\begin{task}{Improvements}{}{}
+Think about ways to improve your model.
+You may, for example, try to use data augmentation (which is quite easy with Keras data loaders) or enlarge your training area (and thus the number of training samples).
+Further, you may increase or decrease the learning rate and the number of training epochs.
+
+\end{task}
+
+\end{document}

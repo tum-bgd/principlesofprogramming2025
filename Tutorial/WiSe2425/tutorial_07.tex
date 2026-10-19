@@ -1,0 +1,88 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+
+% The package supports other formats as well, but this template
+% is primarily checked and updated for examinations at TUM BGDM
+%\usepackage[uebung, answers]{tumbgdm}
+
+\usepackage[uebung]{tumbgdm}
+\usepackage{pythonhighlight}
+
+\Professor{Prof. Dr. Martin Werner}
+\Universitaet{Technical University of Munich}
+\Institut{School of Engineering and Design}
+\Lehrstuhl{Professorship Big Geospatial Data Management}
+\Semester[WiTe 2024/25]{Winter Term 2024/25}
+\Vorlesung{Principles of Programming}
+\InstitutsWebsite{https://www.bgd.lrg.tum.de/}
+\VorlesungsWebsite{https://www.moodle.tum.de/course/view.php?id=103704}
+
+\nummerUebungsblatt{6}
+\nummerErsteFrage{1}
+
+\LearningOutcome{ Douglas Peucker Algorithm, Recursion}
+
+\begin{document}
+\maketitle
+
+\begin{task}{The Douglas-Peucker Algorithm}{}{}
+The Douglas-Peucker algorithm (also Ramer-Douglas-Peucker algorithm) is an algorithm that decimates a curve composed of line segments to a similar curve with fewer points.
+It was one of the first efficient algorithms for cartographic generalization.
+First, find a suitable source and familiarize yourself with the algorithm.
+\end{task}
+
+
+\begin{task}{Implement the Douglas-Peucker Algorithm}{}{}
+Implement the Douglas-Peucker algorithm to simplify trajectories.
+Test it on a simple artificial trajectory and visualize the original and simplified trajectory with \code{matplotlib}. For example, your trajectory for testing may look like this:
+\begin{lstlisting}[numbers=none]
+T = [[1,1],[2,3],[3,4],[5,1],[6,2],[8,3],[10,5]]
+\end{lstlisting}
+
+\vspace{10pt}
+
+\textbf{Additional Information:}
+\begin{itemize}
+    \item As input, the Douglas-Peuker algorithm is given a trajectory as a sequence of points (timestamps are not needed) and an error threshold epsilon. 
+    \item It starts by trying to approximate the trajectory with the shortest trajectory possible, containing only the start and end points. 
+    \item It proceeds from such shortest trajectories by finding the point of largest error and adding the point of the original trajectory into the current simplification until this error is smaller than epsilon.
+    \item The resulting trajectory is the simplification.
+\end{itemize}
+
+\clearpage
+
+
+\textbf{Implementation Hints:}
+\begin{itemize}
+    \item You need to implement a point line distance function.
+    \item You can implement the simplification using a property map approach: An array of boolean values of the same size as the trajectory can be updated if a point needs to be inserted.
+    \item It makes sense to have a findMaxError function returning the size of the error and the location.
+    \item As a variation, you can replace the epsilon with a point budget like "simplify as long as the number of points is smaller than my budget".
+\end{itemize}
+
+\end{task}
+
+
+\begin{task}{Apply the Douglas-Peucker Algorithm}{}{}
+Apply the algorithm to a large polygon and test different values for epsilon. 
+It is suggested to take, for example, the administrative border of a country of your choice (you can download shapefiles for most countries \href{https://www.diva-gis.org/gdata}{here}), but you may also use any other large polygon.
+You can read shapefiles with the \href{https://pypi.org/project/pyshp/}{PyShp} package.
+Below is a way to read in a shapefile with PyShp.
+
+\begin{lstlisting}
+import shapefile as shp 
+
+sf = shp.Reader(file)
+
+x = []
+y = []
+for shape in sf.shapeRecords():
+    x.append([i[0] for i in shape.shape.points[:]])
+    y.append([i[1] for i in shape.shape.points[:]])
+\end{lstlisting}
+
+Finally, think about ways to optimize your code.
+
+\end{task}
+
+\end{document}
