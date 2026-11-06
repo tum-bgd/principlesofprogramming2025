@@ -1,0 +1,124 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+
+% The package supports other formats as well, but this template
+% is primarily checked and updated for examinations at TUM BGDM
+%\usepackage[uebung, answers]{tumbgdm}
+
+\usepackage[uebung]{tumbgdm}
+\usepackage{pythonhighlight}
+
+\Professor{Prof. Dr. Martin Werner}
+\Universitaet{Technical University of Munich}
+\Institut{School of Engineering and Design}
+\Lehrstuhl{Professorship Big Geospatial Data Management}
+\Semester[WiTe 2024/25]{Winter Term 2024/25}
+\Vorlesung{Principles of Programming}
+\InstitutsWebsite{https://www.bgd.lrg.tum.de/}
+\VorlesungsWebsite{https://www.moodle.tum.de/course/view.php?id=103704}
+
+\nummerUebungsblatt{1}
+\nummerErsteFrage{1}
+
+\LearningOutcome{ Basic Python, Python Environments, Jupyter Notebooks, Code Editors, Command Line}
+
+\begin{document}
+\maketitle
+
+\begin{task}{Environments and Jupyter Notebooks}{}{}
+
+Create an environment and start a Jupyter Notebook:
+
+\begin{lstlisting}[numbers=none]
+python -m venv /path/to/my/envirnoment
+source /path/to/my/envirnoment/bin/activate
+pip install notebook
+jupyter notebook
+\end{lstlisting}
+
+You can exit the environment by typing \textit{deactivate} in your shell.
+If you want to use Anaconda, you may do this inside the "Anaconda Navigator" or execute the following lines:
+
+\begin{lstlisting}[numbers=none]
+conda create --name myfirstenv
+conda activate myfirstenv
+conda install notebook
+jupyter notebook
+\end{lstlisting}
+
+You can exit the conda environment by typing \textit{conda deactivate} in your shell.
+
+\end{task}
+
+%Basic: https://pynative.com/python-basic-exercise-for-beginners/
+\begin{task}{Basic Python Exercise}{}{}
+Solve the following tasks inside a Jupyter Notebook. An example follows each task.
+\begin{enumerate}
+    \item print "Hello, World"
+    \begin{lstlisting}[numbers=none]
+    Output: Hello, World
+    \end{lstlisting}
+    
+    \item multiplicate two numbers
+    \begin{lstlisting}[numbers=none]
+    Input: 53, 834
+    Output: 44679
+    \end{lstlisting}
+    
+    \item remove first n characters from a string
+    \begin{lstlisting}[numbers=none]
+    Input: "Hello", 2
+    Output: llo
+    \end{lstlisting}
+
+    \clearpage
+
+    \item check if the first and last number of a list are the same
+    \begin{lstlisting}[numbers=none]
+    Input: [5, 3, 1, 3, 4, 5]
+    Output: True
+    \end{lstlisting}
+    
+    
+    \item return the count of a given substring from a given string
+    \begin{lstlisting}[numbers=none]
+    Input: "I have no idea what I am doing.", "I"
+    Output: 2
+    \end{lstlisting}
+    
+    \item check if a given number is a palindrome number
+    \begin{lstlisting}[numbers=none]
+    Input: 32123
+    Output: True
+    \end{lstlisting}
+    
+\end{enumerate}
+\end{task}
+
+
+\begin{task}{Python Scripts}{}{}
+
+    Install a code editor (e.g., VS Code) and create a Python script (e.g., tutorial\_1.py). Implement Task 2 a. - f. with a main function and run it.
+    The basic structure of your script may look like the following:
+    
+    \begin{lstlisting}[numbers=none]
+        def main():
+            # Your code here ...           
+            return result
+
+        if __name__=="__main__":
+            main()
+    \end{lstlisting}
+
+\end{task}
+
+
+\begin{task}{Command Line Python}{}{}
+
+    Run your Python script from Task 3 in the command prompt (Windows) or terminal (Linux) by typing \textit{python /path/to/tutorial\_1.py}.
+    Then, do Task 2 a. - b. without a script by running Python directly in the shell.
+    You can start Python from the command line by typing \textit{python}.
+
+\end{task}
+
+\end{document}

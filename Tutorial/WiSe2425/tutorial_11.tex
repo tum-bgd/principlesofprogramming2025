@@ -1,0 +1,85 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+
+% The package supports other formats as well, but this template
+% is primarily checked and updated for examinations at TUM BGDM
+%\usepackage[uebung, answers]{tumbgdm}
+
+\usepackage[uebung]{tumbgdm}
+\usepackage{tabularx}
+\usepackage{amsmath}
+
+\Professor{Prof. Dr. Martin Werner}
+\Universitaet{Technical University of Munich}
+\Institut{School of Engineering and Design}
+\Lehrstuhl{Professorship Big Geospatial Data Management}
+\Semester[WiTe 2024/25]{Winter Term 2024/25}
+\Vorlesung{Principles of Programming}
+\InstitutsWebsite{https://www.bgd.lrg.tum.de/}
+\VorlesungsWebsite{https://www.moodle.tum.de/course/view.php?id=103704}
+
+\nummerUebungsblatt{10}
+\nummerErsteFrage{1}
+
+\LearningOutcome{ Multilateration}
+
+\begin{document}
+\maketitle
+
+\vspace{10pt}
+
+"Pseudo-range multilateration, often simply multilateration when in context, is a technique for determining the position of an unknown point, such as a vehicle, based on measurement of the times of arrival of energy waves traveling between the unknown point and multiple stations at known locations." [\href{https://en.wikipedia.org/wiki/Pseudo-range\_multilateration}{Wikipedia}]
+
+\begin{task}{Multilateration}{}{}
+
+Write a program to perform multilateration.
+You should first review the lecture slides and familiarize yourself with the algorithm.
+\vspace{10pt}
+
+\noindent Following is a summary of the algorithm:
+\begin{enumerate}
+    \item Set up a non-linear system of equations from measurements.
+    \item Create a linearized version locally by choosing an initial value and using Taylor expansion at this point.
+    \item Solve this equation and obtain an update vector.
+    \item Update this and go back to b. with this new place information
+\end{enumerate}
+\vspace{5pt}
+Thus, implement the following steps:
+\begin{enumerate}
+    \item Calculate distances:
+$\alpha_{i}=\sqrt{(x_{i}-\Tilde{x})^2+(y_{i}-\Tilde{y})^2}$ for $i = 1, ..., 4$.
+    \item Build matrix:
+$A_{i}=(-\frac{(x_{i}-\Tilde{x})}{\alpha_{i}}, -\frac{(y_{i}-\Tilde{y})}{\alpha_{i}})$.
+    \item Create: $b_{i}=d_{i}-\alpha_{i}$.
+    \item Solve: $A\begin{pmatrix}\hat{x}\\\hat{y}\end{pmatrix}=b$.
+    \item Compute: $\begin{pmatrix}\Tilde{x}_{2}\\\Tilde{y}_{2}\end{pmatrix}= \begin{pmatrix}\Tilde{x}_{1}\\\Tilde{y}_{1}\end{pmatrix} + \begin{pmatrix}\hat{x}\\\hat{y}\end{pmatrix}$.
+\end{enumerate}
+
+\clearpage
+You can use the following data from the lecture:\\
+\\
+\begin{tabularx}{0.8\textwidth} { 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X | }
+ \hline
+ \textbf{Component} & \textbf{Coordinate} & \textbf{Measurement} ($d_{j}$) \\
+ \hline
+ Base station 1  & $(x_{1}, y_{1}) = (0, 0)$  & $2.92$ \\
+ \hline
+ Base station 2  & $(x_{2}, y_{2}) = (10, 0)$  & $8.14$ \\
+ \hline
+ Base station 3  & $(x_{3}, y_{3}) = (15, 10)$  & $15.46$ \\
+ \hline
+ Base station 4  & $(x_{4}, y_{4}) = (0, 12)$  & $9.89$ \\
+ \hline
+ Mobile Device  & $(x_{e}, y_{e}) = (2, 2)$  & $-$ \\
+ \hline
+ Initial Location Estimate  & $(\Tilde{x}, \Tilde{y}) = (20, 20)$  & $-$ \\
+\hline
+\end{tabularx}
+
+\end{task}
+
+
+\end{document}

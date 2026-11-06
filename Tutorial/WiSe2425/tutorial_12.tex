@@ -1,0 +1,116 @@
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+
+% The package supports other formats as well, but this template
+% is primarily checked and updated for examinations at TUM BGDM
+%\usepackage[uebung, answers]{tumbgdm}
+
+\usepackage[uebung]{tumbgdm}
+\usepackage{tabularx}
+\usepackage{amsmath}
+
+\Professor{Prof. Dr. Martin Werner}
+\Universitaet{Technical University of Munich}
+\Institut{School of Engineering and Design}
+\Lehrstuhl{Professorship Big Geospatial Data Management}
+\Semester[WiTe 2024/25]{Winter Term 2024/25}
+\Vorlesung{Principles of Programming}
+\InstitutsWebsite{https://www.bgd.lrg.tum.de/}
+\VorlesungsWebsite{https://www.moodle.tum.de/course/view.php?id=103704}
+
+\nummerUebungsblatt{11}
+\nummerErsteFrage{1}
+
+\LearningOutcome{ Exam Preparation }
+
+\begin{document}
+\maketitle
+
+\vspace{10pt}
+
+In this tutorial, we practice a mock exam.
+
+\vspace{10pt}
+
+\begin{task}{State your Name}{}{}
+
+Name: \\
+ \\
+ \\
+Surname: \\
+ \\
+ \\
+
+\end{task}
+
+\begin{task}{Yes-No-Example}{}{}
+Answer the following questions with yes or no. \\
+
+\begin{yesnolist}
+  \yesnoquestion{In Python, you need to define a function to execute a script.}{X}{}{}
+  \yesnoquestion{The Numpy and Matplotlib library are by default part of the Python installation.}{X}{}{}
+  \yesnoquestion{To install a Python package, you always have to create a virtual environment.}{X}{}{} 
+\end{yesnolist}
+\end{task}
+
+\clearpage
+
+\begin{task}{Multiple Joice Example}{}{}
+For the given question, one of the answer options is correct. Mark this (and only this) answer. If more than one answer is marked, the answer is not considered. A wrong answer is \textbf{not} counted as -1.\vspace{1cm}
+
+  \begin{multiplechoice}{In programming, what is meant by a recursive function?}
+    \mcanswer{A function that is called multiple times.}{}
+    \mcanswer{A function that calls itself.}{}
+    \mcanswer{A function inside another function.}{}
+    \mcanswer{A function that takes another function as input.}{}
+  \end{multiplechoice}
+
+  \begin{multiplechoice}{Which of the following is \textbf{not} a method of a list object in Python?}
+    \mcanswer{remove}{X}
+    \mcanswer{delete}{}
+    \mcanswer{reverse}{}
+    \mcanswer{pop}{}
+  \end{multiplechoice}
+\end{task}
+
+
+\begin{task}{Distance Between Two Points}{}{}
+Complete the given Python function \code{dist()} that takes two points \code{p1 = [x1, y1]} and \code{p2 = [x2, y2]} as input and shall return their distance.
+\begin{lstlisting}
+    def dist(p1, p2):
+        # ...
+        return distance
+\end{lstlisting}
+\end{task}
+
+\clearpage
+
+\begin{task}{List Comprehension}{}{}
+  \begin{enumerate}
+  \item{Consider the following program using list expressions.}
+  \begin{lstlisting}
+  vocabulary = ['dear', 'done', 'easy', 'hello', 'hope', 'is', 'it', 'say', 'student', 'to', 'we', 'well']
+  sentence = " ".join([vocabulary[x] for x in [3,0,8,10,4,6,5,2]])
+  print(sentence)
+  \end{lstlisting}
+  Give the exact output of the program 
+
+\vspace*{6cm}
+
+
+  \item{Consider the following Python function consisting of seven lines of code.}
+  \begin{lstlisting}
+  def myFunction(n: list):
+      result = []
+      for k in n:
+          if k > 0:
+              tmp = k**2
+              result.append(tmp)
+      return result
+  \end{lstlisting}
+  Rewrite the function with a list comprehension such that it only needs two lines of code.
+  \end{enumerate}
+
+\end{task}
+
+\end{document}
